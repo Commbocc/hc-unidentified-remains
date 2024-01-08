@@ -5,7 +5,7 @@ import { cases } from "../lib/cases";
 <template>
   <p v-if="!cases.data.length">There are currently no active cases.</p>
 
-  <div v-else class="table-responsive">
+  <div v-else class="table-responsive mt-3">
     <div class="card mb-3" v-for="(remains, i) in cases.data" :key="i">
       <div class="row g-0">
         <div class="col-md-4">

@@ -9,13 +9,17 @@ import { cases } from "../lib/cases";
     <div class="card mb-3" v-for="(remains, i) in cases.data" :key="i">
       <div class="row g-0">
         <div class="col-md-4">
-          <img
-            v-if="remains.fields.image"
-            :src="`${remains.fields.image}`"
-            class="card-img-top"
-            :alt="`${remains.fields.caseNumber}`"
-            style="max-height: 500px; max-width: 500px; display: flex"
-          />
+          <a
+            v-if="remains.image?.url"
+            :href="`${remains.image.url}`"
+            target="_blank"
+          >
+            <img
+              :src="`${remains.image.url}?width=400`"
+              class="card-img-top"
+              :alt="`${remains.title}`"
+            />
+          </a>
 
           <p
             v-else
@@ -33,14 +37,14 @@ import { cases } from "../lib/cases";
 
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Case #{{ remains.fields.caseNumber }}</h5>
+            <h5 class="card-title">Case #{{ remains.title }}</h5>
 
             <h6 class="card-subtitle mb-2 text-muted">
-              Date: {{ remains.fields.dateFound }} | Location:
-              {{ remains.fields.locationFound }}
+              Date: {{ remains.date_found }} | Location:
+              {{ remains.location_found }}
             </h6>
 
-            <p class="card-text">{{ remains.fields.description }}</p>
+            <p class="card-text">{{ remains.description }}</p>
           </div>
         </div>
       </div>

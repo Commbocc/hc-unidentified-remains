@@ -1,10 +1,8 @@
 interface Case {
-  id: string;
-  fields: {
-    caseNumber: string;
-    dateFound: string;
-    locationFound: string;
-    description: string;
-    image: string;
-  };
+  uid: string;
+  title: string;
+  date_found: string;
+  location_found: string;
+  description: string;
+  image: url;
 }

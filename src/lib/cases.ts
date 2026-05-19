@@ -1,5 +1,5 @@
 import { reactive } from "vue";
-import airtable from "./airtable";
+import api from "./api";
 
 export const cases = reactive<{
   loading: boolean;
@@ -11,14 +11,10 @@ export const cases = reactive<{
 
 export async function fetchCases() {
   cases.loading = true;
-  try {
-    const { data } = await airtable.get("/tblmtYdL4F8fyK8Ug", {
-      params: {
-        view: "Grid view",
-      },
-    });
 
-    cases.data = data.records;
+  try {
+    const data = await api.get<{ entries: Case[] }>("/entries?asc=title");
+    cases.data = data.entries;
   } catch (error) {
     console.error(error);
   } finally {

@@ -11,9 +11,9 @@ export const cases = reactive<{
 
 export async function fetchCases() {
   cases.loading = true;
-  try {
-    const { data } = await api.get("/entries?asc=title", {});
 
+  try {
+    const data = await api.get<{ entries: Case[] }>("/entries?asc=title");
     cases.data = data.entries;
   } catch (error) {
     console.error(error);

@@ -13,7 +13,7 @@ export async function fetchCases() {
   cases.loading = true;
 
   try {
-    const data = await api.get<{ entries: Case[] }>("/entries?asc=title");
+    const data = await api.get<{ entries: Case[] }>("/entries?desc=date_found");
     cases.data = data.entries;
   } catch (error) {
     console.error(error);

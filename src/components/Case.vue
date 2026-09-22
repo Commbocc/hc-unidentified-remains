@@ -46,11 +46,11 @@ function toggleDetails(uid: string) {
         <div class="card-body">
           <h5 class="card-title mb-1">Case #{{ remains.title }}</h5>
           <p class="card-text mb-1">
-            <span class="text-muted">Date found:</span>
+            <span class="fw-bold">Date found:</span>
             {{ remains.date_found }}
           </p>
           <p class="card-text mb-1">
-            <span class="text-muted">Location:</span>
+            <span class="fw-bold">Location:</span>
             {{ remains.location_found }}
           </p>
           <button
@@ -63,7 +63,7 @@ function toggleDetails(uid: string) {
           </button>
           <div v-if="openId === remains.uid" class="mt-2">
             <p class="card-text mb-0">
-              <span class="text-muted">Description: </span
+              <span class="fw-bold">Description: </span
               >{{ remains.description }}
             </p>
           </div>
